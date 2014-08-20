@@ -10,7 +10,7 @@ class Module
             $controllerClass = get_class($controller);
             $config          = $e->getApplication()->getServiceManager()->get('config');
             foreach($config['module_layouts'] as $module_namespace => $layout){
-                if(false !== strpos($controllerClass, $module_namespace)){
+                if(false !== strpos($controllerClass, $module_namespace."\\")){
                     $controller->layout($layout);
                 }
             }
